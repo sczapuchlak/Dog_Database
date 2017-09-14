@@ -1,8 +1,6 @@
 # This program calls to other programs in the same project to work with
 # SQL Lite databases to query and mold the information
-import AddRowOfDataToTable
-import CretateDBandTable
-import UpdatesARowInTable
+import CretateDBandTable,AddRowOfDataToTable,UpdatesARowInTable, DeletesARow, DisplaysASingleRow,DisplaysAllARows
 
 
 def main():
@@ -36,12 +34,12 @@ def userSelection(num):
         AddRowOfDataToTable.main()
     elif num == "3":
         UpdatesARowInTable.main()
-    # elif num == "4":
-    #     DeletesARow.main()
-    # elif num == "5":
-    #     DisplaysAllARows.main()
-    # elif num == "6":
-    #     DisplaysASingleRow.main()
+    elif num == "4":
+        DeletesARow.main()
+    elif num == "5":
+        DisplaysAllARows.main()
+    elif num == "6":
+        DisplaysASingleRow.main()
     else:
         print("Please enter a number! ")
         exit()
