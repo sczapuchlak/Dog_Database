@@ -23,8 +23,8 @@ def addRow():
     try:
 
                 c.execute("INSERT OR IGNORE INTO {tn} VALUES (NULL, {dN}, {dA}, {dB}, {dO}, {dT})".
-                format(tn=dog_table, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB=askUser[2],
-                dO=askUser[3], dT="\'" + askUser[4] + "\'"))
+                format(tn=dog_table, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB= "\'" + askUser[2]+"\'",
+                dO= "\'" + askUser[3] + "\'", dT="\'" + askUser[4] + "\'"))
 
     # let the user know their info has been added
                 print("Your dog has been added!")
@@ -39,7 +39,7 @@ def addRow():
     # close the DB connection
     conn.close()
 
-
+#get user information
 def userInformation():
     userDogName = input("Dog Name: ")
     userDogAge = input("Dog Age: ")
