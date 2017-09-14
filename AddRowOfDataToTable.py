@@ -50,4 +50,4 @@ def userInformation():
     userList = [userDogName, userDogAge, userDogBreed, userDogOrigin, userDogTemperament]
     return userList
 
-main()
+# main()

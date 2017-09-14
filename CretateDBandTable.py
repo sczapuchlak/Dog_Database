@@ -35,4 +35,4 @@ def createDBandTable():
     # close the DB connection
     conn.close()
 
-main()
+# main()

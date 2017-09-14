@@ -21,8 +21,8 @@ def updateRow():
 
     try:
         c.execute("UPDATE {tn} ({idc}, {dN}, {dA}, {dB},{dO}, {dT})". \
-                  format(tn=dog_table,idc=id_column, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB=askUser[2],
-                         dO=askUser[3], dT="\'" + askUser[4] + "\'"))
+                  format(tn=dog_table,idc=id_column, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB= "\'" + askUser[2]+"\'",
+                dO= "\'" + askUser[3] + "\'", dT="\'" + askUser[4] + "\'"))
         # let the user know their info has been added
         print("Your dog has been updated!")
     except sqlite3.IntegrityError:
@@ -39,4 +39,4 @@ def updateInfo():
     return userListofDogTraits
 
 
-main()
+# main()
