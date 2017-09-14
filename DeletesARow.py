@@ -24,7 +24,7 @@ def deleteRow():
     c = conn.cursor()
     try:
         #delete one entry from table
-        c.execute('DELETE * FROM {tn} WHERE {cn}={user}'.format(tn=dog_table, cn=dogName,user="\'" +userDelete+"\'" ))
+        c.execute('DELETE FROM {tn} WHERE {cn}={user}'.format(tn=dog_table, cn=dogName,user=userDelete ))
         print(dogName + "has been deleted from the table!")
 
     except sqlite3.Error:

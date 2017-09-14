@@ -22,9 +22,9 @@ def updateRow():
     c = conn.cursor()
 
     try:
-        c.execute("UPDATE {tn} SET ({idc}, {dN}, {dA}, {dB},{dO}, {dT} WHERE {cn}={name})". \
+        c.execute("UPDATE {tn} SET {dN}=?,{dA}=?,{dB}=?,{dO}=?,{dT}=? WHERE {cn}={name})". \
                   format(tn=dog_table,idc=id_column, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB= "\'" + askUser[2]+"\'",
-                dO= "\'" + askUser[3] + "\'", dT="\'" + askUser[4] + "\'", cn=dogName, name= "\'" + ))
+                dO= "\'" + askUser[3] + "\'", dT="\'" + askUser[4] + "\'", cn=dogName, name= "\'"  ))
         # let the user know their info has been added
         print("Your dog has been updated!")
     except sqlite3.IntegrityError:
@@ -46,4 +46,4 @@ def updateInfo():
     return userListofDogTraits
 
 
-# main()
+main()

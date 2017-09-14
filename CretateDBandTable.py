@@ -25,6 +25,7 @@ def createDBandTable():
     c = conn.cursor()
 
     # create the dog sqlLite table
+    c.execute('DROP TABLE IF EXISTS {tn}'.format(tn=dogTable))
     c.execute('CREATE TABLE {tn} ({dI} INTEGER PRIMARY KEY, {dN} TEXT NOT NULL, {dA} REAL, {dB} TEXT, {dO} TEXT, {dT} TEXT)'\
                        .format(tn=dogTable, dI=id_column, dN=dogName, dA=dogAge, dB=dogBreed, dO=dogOrigin, dT=dogTemperament))
 
