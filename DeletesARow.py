@@ -20,8 +20,10 @@ def deleteRow():
 
 
     try:
+        # gets User input
+        userDelete = input("Type the name of the Doggo you want to delete: ")
         #delete one entry from table
-        c.execute('DELETE FROM {tn} WHERE {cn}={user}'.format(tn=dog_table, cn=dogName,user=userDelete ))
+        c.execute('DELETE FROM {tn} WHERE {cn}={user}'.format(tn=dog_table, cn=dogName,user=userDelete))
         print(dogName + "has been deleted from the table!")
 
     except sqlite3.Error:
@@ -32,4 +34,4 @@ def deleteRow():
     # close the DB connection
     conn.close()
 
-main()
+# main()

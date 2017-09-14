@@ -1,4 +1,4 @@
-# This program calls to other programs in the same project to work with
+# This program calls to other programs in the same project to work with3
 # SQL Lite databases to query and mold the information
 import CretateDBandTable,AddRowOfDataToTable,UpdatesARowInTable, DeletesARow, DisplaysASingleRow,DisplaysAllARows
 
@@ -6,7 +6,7 @@ import CretateDBandTable,AddRowOfDataToTable,UpdatesARowInTable, DeletesARow, Di
 def main():
     game_loop = True
     while game_loop:
-        print("Welcome to the Database Menu Program ")
+        print("\nWelcome to the Database Menu Program\n ")
         menu()
         selection = input()
         userSelection(selection)
@@ -17,13 +17,14 @@ def main():
 
 
 def menu():
-    print("Please select a number based the option you'd like: \n")
+    print("Please select a number based the option you'd like: ")
     print("1. Create a database and table of different dogs.\n")
     print("2. Add a dog to the table.\n")
     print("3. Update a dog in the table.\n")
     print("4. Delete a dog from the table.\n")
     print("5. Display all of the dogs in the table.\n")
     print("6. Display a single dog in the table.\n")
+    print("Press anything else to close\n")
 
 
 
@@ -41,7 +42,7 @@ def userSelection(num):
     elif num == "6":
         DisplaysASingleRow.main()
     else:
-        print("Please enter a number! ")
+        print("Now quitting.. ")
         exit()
 
 
