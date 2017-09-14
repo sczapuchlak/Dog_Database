@@ -16,12 +16,9 @@ def deleteRow():
     dogName = "Doggo_Name"
     # Connecting to the database file
     conn = sqlite3.connect(dog_file)
-
-
-    # ask user what name they would like to delete?
-    userDelete = input("Enter the name of the dog you would like to delete: ")
-
     c = conn.cursor()
+
+
     try:
         #delete one entry from table
         c.execute('DELETE FROM {tn} WHERE {cn}={user}'.format(tn=dog_table, cn=dogName,user=userDelete ))
