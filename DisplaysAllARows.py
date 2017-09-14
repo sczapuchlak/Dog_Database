@@ -25,8 +25,11 @@ def getAllRows():
     for r in allDoggos:
         print(r)
 
+    # commit changes made
+    conn.commit()
+    # close the DB connection
     conn.close()
-    return allDoggos
+
 
 
 
