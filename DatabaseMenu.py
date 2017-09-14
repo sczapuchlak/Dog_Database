@@ -10,7 +10,7 @@ def main():
     while game_loop:
         print("Welcome to the Database Menu Program ")
         menu()
-        selection = input()
+        selection = int(input())
         userSelection(selection)
         ask_user = input("Would you like to do more doggie database stuff? (Y for yes, N for no)")
         if ask_user == "n" or ask_user == "N":
@@ -19,22 +19,23 @@ def main():
 
 
 def menu():
-    print("Please select a number based the option you'd like: \n"
-          "1. Create a database and table of different dogs.\n"
-          "2. Add a dog to the table.\n"
-          "3. Update a dog in the table.\n"
-          "4. Delete a dog from the table.\n"
-          "5. Display all of the dogs in the table.\n"
-          "6. Display a single dog in the table.\n")
+    select=input("Please select a number based the option you'd like: \n")
+    print("1. Create a database and table of different dogs.\n")
+    print("2. Add a dog to the table.\n")
+    print("3. Update a dog in the table.\n")
+    print("4. Delete a dog from the table.\n")
+    print("5. Display all of the dogs in the table.\n")
+    print("6. Display a single dog in the table.\n")
+    return select
 
 
 def userSelection(num):
     if num == "1":
-        CretateDBandTable.main()
+        CretateDBandTable
     elif num == "2":
-        AddRowOfDataToTable.main()
+        AddRowOfDataToTable
     elif num == "3":
-        UpdatesARowInTable.main()
+        UpdatesARowInTable
     # elif num == "4":
     #     DeletesARow.main()
     # elif num == "5":

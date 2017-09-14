@@ -1,33 +1,38 @@
+
 # this file adds a row of data to the table
-import sqlite3, CretateDBandTable
+import sqlite3
 
 
 def main():
-    AddARow()
+    addRow()
 
 
-def AddARow():
-    # this names the database
-    dogFile = 'Dog_Database.sqlite'
-    # this names the table
-    dogTable = 'Dog_Table'
+def addRow():
+
     # Call the UserInformationFunction
-    askUser = UserInformation()
-    # name the variable with the Primary ID column
-    id_column = "Primary_Key"
+    askUser = userInformation()
+    # this names the database
+    file = "Dog_Database.sqlite"
+    # this names the table
+    dog_table = 'Dog_Table'
     # Connecting to the database file
-    conn = sqlite3.connect(dogFile)
+    conn = sqlite3.connect(file)
     c = conn.cursor()
 
     # Use a try statement to a add a new row if the ID doesn't already exist
     try:
-        c.execute("INSERT OR IGNORE INTO {tn}  VALUES(NULL, {dN}, {dA}, {dB},{dO}, {dT})".
-                  format(tn=dogTable, dN="\'" + askUser[0], dA="\'" + askUser[1]),
-                         dB="\'" + askUser[2], dO="\'" + askUser[3], dT="\'" + askUser[4]+"\'"))
-        # let the user know their info has been added
-        print("Your dog has been added!")
+
+                c.execute("INSERT OR IGNORE INTO {tn} VALUES (NULL, {dN}, {dA}, {dB}, {dO}, {dT})".
+                format(tn=dog_table, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB=askUser[2],
+                dO=askUser[3], dT="\'" + askUser[4] + "\'"))
+
+    # let the user know their info has been added
+                print("Your dog has been added!")
     except sqlite3.IntegrityError:
-        print("There was an error with your key!")
+        print("There was an error with your primary key!")
+    except sqlite3.Error:
+        print("There was an error with your values!")
+
 
     # commit changes made
     conn.commit()
@@ -35,14 +40,14 @@ def AddARow():
     conn.close()
 
 
-def UserInformation():
+def userInformation():
     userDogName = input("Dog Name: ")
     userDogAge = input("Dog Age: ")
     userDogBreed = input("Dog Breed: ")
     userDogOrigin = input("Dog Origin: ")
     userDogTemperament = input("Dog Temperament: ")
-    userListofDogTraits = [userDogName, userDogAge, userDogBreed, userDogOrigin, userDogTemperament]
-    return userListofDogTraits
 
+    userList = [userDogName, userDogAge, userDogBreed, userDogOrigin, userDogTemperament]
+    return userList
 
 main()

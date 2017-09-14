@@ -1,4 +1,4 @@
-# this file adds a row of data to the table
+# this file updates a row of data to the table
 import sqlite3
 
 
@@ -10,7 +10,7 @@ def updateRow():
     # this names the database
     dogFile = 'Dog_Database.sqlite'
     # this names the table
-    dogTable = 'Dog_Table'
+    dog_table = 'Dog_Table'
     # Call the UserInformationFunction
     askUser = updateInfo()
     # name the variable with the Primary ID column
@@ -21,8 +21,8 @@ def updateRow():
 
     try:
         c.execute("UPDATE {tn} ({idc}, {dN}, {dA}, {dB},{dO}, {dT})". \
-                  format(tn=dogTable, idc=id_column, dN=askUser[0], dA=int(askUser[1]), dB=askUser[2], dO=askUser[3],
-                         dT=askUser[4]))
+                  format(tn=dog_table,idc=id_column, dN="\'" + askUser[0] + "\'", dA=int(askUser[1]), dB=askUser[2],
+                         dO=askUser[3], dT="\'" + askUser[4] + "\'"))
         # let the user know their info has been added
         print("Your dog has been updated!")
     except sqlite3.IntegrityError:
@@ -30,11 +30,11 @@ def updateRow():
 
 
 def updateInfo():
-    userDogName = input("Dog Name: ")
-    userDogAge = input("Dog Age: ")
-    userDogBreed = input("Dog Breed: ")
-    userDogOrigin = input("Dog Origin: ")
-    userDogTemperament = input("Dog Temperament: ")
+    userDogName = input("Dog Name to update: ")
+    userDogAge = input("Please update the dog's age: ")
+    userDogBreed = input("Please update the dog's breed: ")
+    userDogOrigin = input("Please update the dog's origin: ")
+    userDogTemperament = input("Please update the dog's temperament: ")
     userListofDogTraits = [userDogName, userDogAge, userDogBreed, userDogOrigin, userDogTemperament]
     return userListofDogTraits
 

@@ -11,10 +11,8 @@ def createDBandTable():
     dogFile = 'Dog_Database.sqlite'
     # this names the table
     dogTable = 'Dog_Table'
-
     # name the variable with the Primary ID column
     id_column = "Primary_Key"
-
     # titles of the columns
     dogName = "Doggo_Name"
     dogAge = "Doggo_Age"
@@ -27,9 +25,9 @@ def createDBandTable():
     c = conn.cursor()
 
     # create the dog sqlLite table
-    c.execute('CREATE TABLE {tn} ({dI} INTEGER PRIMARY KEY, {dN} TEXT, {dA} INTEGER , {dB} TEXT,{dO} TEXT, {dT} TEXT)'
-              .format(tn=dogTable, dI=id_column, dN=dogName, dA=dogAge,
-                      dB=dogBreed, dO=dogOrigin, dT=dogTemperament))
+    c.execute('CREATE TABLE {tn} ({dI} INTEGER PRIMARY KEY, {dN} TEXT NOT NULL, {dA} REAL, {dB} TEXT, {dO} TEXT, {dT} TEXT)'\
+                       .format(tn=dogTable, dI=id_column, dN=dogName, dA=dogAge, dB=dogBreed, dO=dogOrigin, dT=dogTemperament))
+
     # tell the user the table was created
     print("Table has been created")
     # commit changes made
